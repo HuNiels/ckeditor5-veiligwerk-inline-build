@@ -3,7 +3,8 @@
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
-import { InlineEditor } from '@ckeditor/ckeditor5-editor-inline';
+import { InlineEditor as InlineEditorBase } from '@ckeditor/ckeditor5-editor-inline';
+import { ClassicEditor as ClassicEditorBase } from '@ckeditor/ckeditor5-editor-classic';
 
 import { Alignment } from '@ckeditor/ckeditor5-alignment';
 import { Autoformat } from '@ckeditor/ckeditor5-autoformat';
@@ -36,91 +37,100 @@ import { TextTransformation } from '@ckeditor/ckeditor5-typing';
 
 // You can read more about extending the build with additional plugins in the "Installing plugins" guide.
 // See https://ckeditor.com/docs/ckeditor5/latest/installation/plugins/installing-plugins.html for details.
+const plugins = [
+    Alignment,
+    Autoformat,
+    BlockQuote,
+    Bold,
+    CKBox,
+    CloudServices,
+    Essentials,
+    FontFamily,
+    FontSize,
+    Heading,
+    Image,
+    ImageCaption,
+    ImageStyle,
+    ImageToolbar,
+    ImageUpload,
+    Indent,
+    Italic,
+    Link,
+    List,
+    MediaEmbed,
+    PageBreak,
+    Paragraph,
+    PasteFromOffice,
+    PictureEditing,
+    RemoveFormat,
+    SpecialCharacters,
+    Strikethrough,
+    Table,
+    TableToolbar,
+    TextTransformation,
+    Underline
+];
 
-class Editor extends InlineEditor {
-	public static override builtinPlugins = [
-		Alignment,
-		Autoformat,
-		BlockQuote,
-		Bold,
-		CKBox,
-		CloudServices,
-		Essentials,
-		FontFamily,
-		FontSize,
-		Heading,
-		Image,
-		ImageCaption,
-		ImageStyle,
-		ImageToolbar,
-		ImageUpload,
-		Indent,
-		Italic,
-		Link,
-		List,
-		MediaEmbed,
-		PageBreak,
-		Paragraph,
-		PasteFromOffice,
-		PictureEditing,
-		RemoveFormat,
-		SpecialCharacters,
-		Strikethrough,
-		Table,
-		TableToolbar,
-		TextTransformation,
-		Underline
-	];
+const config = {
+    toolbar: {
+        items: [
+            'heading',
+            '|',
+            'bold',
+            'italic',
+            'underline',
+            'strikethrough',
+            'link',
+            'removeFormat',
+            '|',
+            'bulletedList',
+            'numberedList',
+            'outdent',
+            'indent',
+            'alignment',
+            '|',
+            'fontFamily',
+            'fontSize',
+            'specialCharacters',
+            '|',
+            'pageBreak',
+            'imageUpload',
+            'blockQuote',
+            'insertTable',
+            'mediaEmbed',
+            'undo',
+            'redo'
+        ]
+    },
+    language: 'en',
+    image: {
+        toolbar: [
+            'imageTextAlternative',
+            'toggleImageCaption',
+            'imageStyle:inline',
+            'imageStyle:block',
+            'imageStyle:side'
+        ]
+    },
+    table: {
+        contentToolbar: [
+            'tableColumn',
+            'tableRow',
+            'mergeTableCells'
+        ]
+    }
+};
 
-	public static override defaultConfig = {
-		toolbar: {
-			items: [
-				'heading',
-				'|',
-				'bold',
-				'italic',
-				'underline',
-				'strikethrough',
-				'link',
-				'removeFormat',
-				'|',
-				'bulletedList',
-				'numberedList',
-				'outdent',
-				'indent',
-				'alignment',
-				'|',
-				'fontFamily',
-				'fontSize',
-				'specialCharacters',
-				'|',
-				'pageBreak',
-				'imageUpload',
-				'blockQuote',
-				'insertTable',
-				'mediaEmbed',
-				'undo',
-				'redo'
-			]
-		},
-		language: 'en',
-		image: {
-			toolbar: [
-				'imageTextAlternative',
-				'toggleImageCaption',
-				'imageStyle:inline',
-				'imageStyle:block',
-				'imageStyle:side'
-			]
-		},
-		table: {
-			contentToolbar: [
-				'tableColumn',
-				'tableRow',
-				'mergeTableCells'
-			]
-		}
-	};
+class InlineEditor extends InlineEditorBase {
+	public static override builtinPlugins = plugins
+	public static override defaultConfig = config
 }
 
-export default Editor;
+class ClassicEditor extends ClassicEditorBase {
+	public static override builtinPlugins = plugins
+	public static override defaultConfig = config
+}
+
+export default {
+    ClassicEditor, InlineEditor
+};

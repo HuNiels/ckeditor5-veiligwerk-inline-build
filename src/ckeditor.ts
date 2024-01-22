@@ -36,6 +36,7 @@ import { Table, TableToolbar } from '@ckeditor/ckeditor5-table';
 import { TextTransformation } from '@ckeditor/ckeditor5-typing';
 import { FileRepository } from "@ckeditor/ckeditor5-upload";
 
+
 // You can read more about extending the build with additional plugins in the "Installing plugins" guide.
 // See https://ckeditor.com/docs/ckeditor5/latest/installation/plugins/installing-plugins.html for details.
 const plugins = [
@@ -43,7 +44,7 @@ const plugins = [
     Autoformat,
     BlockQuote,
     Bold,
-    CKBox,
+
     CloudServices,
     Essentials,
     FontFamily,
@@ -71,6 +72,7 @@ const plugins = [
     TextTransformation,
     Underline,
     FileRepository,
+    CKBox,
 
 ];
 
@@ -108,6 +110,7 @@ const config = {
     language: 'en',
     image: {
         toolbar: [
+            'ckbox',
             'imageTextAlternative',
             'toggleImageCaption',
             'imageStyle:inline',

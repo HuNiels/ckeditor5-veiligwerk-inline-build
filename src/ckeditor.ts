@@ -8,6 +8,7 @@ import { ClassicEditor as ClassicEditorBase } from '@ckeditor/ckeditor5-editor-c
 
 import { Alignment } from '@ckeditor/ckeditor5-alignment';
 import { Autoformat } from '@ckeditor/ckeditor5-autoformat';
+import { Base64UploadAdapter} from "@ckeditor/ckeditor5-upload";
 import { Bold, Italic, Strikethrough, Underline } from '@ckeditor/ckeditor5-basic-styles';
 import { BlockQuote } from '@ckeditor/ckeditor5-block-quote';
 import { CKBox } from '@ckeditor/ckeditor5-ckbox';
@@ -44,7 +45,7 @@ const plugins = [
     Autoformat,
     BlockQuote,
     Bold,
-
+    Base64UploadAdapter,
     CloudServices,
     Essentials,
     FontFamily,
@@ -72,7 +73,7 @@ const plugins = [
     TextTransformation,
     Underline,
     FileRepository,
-    CKBox,
+    // CKBox,
 
 ];
 
@@ -110,7 +111,7 @@ const config = {
     language: 'en',
     image: {
         toolbar: [
-            'ckbox',
+            // 'ckbox',
             'imageTextAlternative',
             'toggleImageCaption',
             'imageStyle:inline',

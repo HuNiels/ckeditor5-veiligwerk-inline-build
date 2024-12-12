@@ -11,7 +11,6 @@ import { Autoformat } from '@ckeditor/ckeditor5-autoformat';
 import { Base64UploadAdapter} from "@ckeditor/ckeditor5-upload";
 import { Bold, Italic, Strikethrough, Underline } from '@ckeditor/ckeditor5-basic-styles';
 import { BlockQuote } from '@ckeditor/ckeditor5-block-quote';
-import { CKBox } from '@ckeditor/ckeditor5-ckbox';
 import { CloudServices } from '@ckeditor/ckeditor5-cloud-services';
 import { Essentials } from '@ckeditor/ckeditor5-essentials';
 import { FontFamily, FontSize } from '@ckeditor/ckeditor5-font';
@@ -30,7 +29,7 @@ import { List } from '@ckeditor/ckeditor5-list';
 import { MediaEmbed } from '@ckeditor/ckeditor5-media-embed';
 import { PageBreak } from '@ckeditor/ckeditor5-page-break';
 import { Paragraph } from '@ckeditor/ckeditor5-paragraph';
-import { PasteFromOffice } from '@ckeditor/ckeditor5-paste-from-office';
+// import { PasteFromOffice } from '@ckeditor/ckeditor5-paste-from-office';
 import { RemoveFormat } from '@ckeditor/ckeditor5-remove-format';
 import { SpecialCharacters } from '@ckeditor/ckeditor5-special-characters';
 import { Table, TableToolbar } from '@ckeditor/ckeditor5-table';
@@ -63,7 +62,7 @@ const plugins = [
     MediaEmbed,
     PageBreak,
     Paragraph,
-    PasteFromOffice,
+    // PasteFromOffice,
     PictureEditing,
     RemoveFormat,
     SpecialCharacters,
@@ -80,32 +79,55 @@ const plugins = [
 const config = {
     toolbar: {
         items: [
+            'undo',
+            'redo',
             'heading',
+            '|',
+            'fontSize',
+            'fontColor',
+            'fontBackgroundColor',
             '|',
             'bold',
             'italic',
-            'underline',
-            'strikethrough',
-            'link',
-            'removeFormat',
+            {
+                label: 'More basic styles',
+                icon: 'underline',
+                items: [  
+                    'underline',
+                    'strikethrough',
+                    'subscript',
+                    'superscript',
+                    'blockQuote',
+                    'removeFormat' 
+                ]
+            },
             '|',
-            'bulletedList',
-            'numberedList',
-            'outdent',
-            'indent',
+            'horizontalLine',
+            'pageBreak',
+            'link',
+            'imageUpload',
+            'insertTable',
             'alignment',
             '|',
-            'fontFamily',
-            'fontSize',
-            'specialCharacters',
+            {
+                label: 'lists',
+                icon: 'bulletedList',
+                items: [  
+                    'bulletedList',
+                    'numberedList'
+                ]
+            },
             '|',
-            'pageBreak',
-            'imageUpload',
-            'blockQuote',
-            'insertTable',
-            'mediaEmbed',
-            'undo',
-            'redo'
+            {
+                label: 'threeVerticalDots',
+                icon: 'threeVerticalDots',
+                items: [  
+                    'specialCharacters',
+                    'findAndReplace',
+                    'selectAll',
+                    'accessibilityHelp'
+                ]
+            },
         ]
     },
     language: 'en',

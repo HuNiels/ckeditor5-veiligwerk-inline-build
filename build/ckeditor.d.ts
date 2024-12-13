@@ -28,13 +28,11 @@ import { FileRepository } from "@ckeditor/ckeditor5-upload";
 declare class InlineEditor extends InlineEditorBase {
     static builtinPlugins: (typeof Alignment | typeof Autoformat | typeof BlockQuote | typeof Bold | typeof Base64UploadAdapter | typeof CloudServices | typeof Essentials | typeof FontFamily | typeof FontSize | typeof Heading | typeof Image | typeof ImageCaption | typeof ImageStyle | typeof ImageToolbar | typeof ImageUpload | typeof Indent | typeof Italic | typeof Link | typeof List | typeof MediaEmbed | typeof PageBreak | typeof Paragraph | typeof PictureEditing | typeof RemoveFormat | typeof SpecialCharacters | typeof Strikethrough | typeof Table | typeof TableToolbar | typeof TextTransformation | typeof Underline | typeof FileRepository)[];
     static defaultConfig: {
-        toolbar: {
-            items: (string | {
-                label: string;
-                icon: string;
-                items: string[];
-            })[];
-        };
+        toolbar: (string | {
+            label: string;
+            icon: string;
+            items: string[];
+        })[];
         language: string;
         image: {
             toolbar: string[];
@@ -47,13 +45,11 @@ declare class InlineEditor extends InlineEditorBase {
 declare class ClassicEditor extends ClassicEditorBase {
     static builtinPlugins: (typeof Alignment | typeof Autoformat | typeof BlockQuote | typeof Bold | typeof Base64UploadAdapter | typeof CloudServices | typeof Essentials | typeof FontFamily | typeof FontSize | typeof Heading | typeof Image | typeof ImageCaption | typeof ImageStyle | typeof ImageToolbar | typeof ImageUpload | typeof Indent | typeof Italic | typeof Link | typeof List | typeof MediaEmbed | typeof PageBreak | typeof Paragraph | typeof PictureEditing | typeof RemoveFormat | typeof SpecialCharacters | typeof Strikethrough | typeof Table | typeof TableToolbar | typeof TextTransformation | typeof Underline | typeof FileRepository)[];
     static defaultConfig: {
-        toolbar: {
-            items: (string | {
-                label: string;
-                icon: string;
-                items: string[];
-            })[];
-        };
+        toolbar: (string | {
+            label: string;
+            icon: string;
+            items: string[];
+        })[];
         language: string;
         image: {
             toolbar: string[];

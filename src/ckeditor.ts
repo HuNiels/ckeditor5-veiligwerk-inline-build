@@ -77,59 +77,57 @@ const plugins = [
 ];
 
 const config = {
-    toolbar: {
-        items: [
-            'undo',
-            'redo',
-            'heading',
-            '|',
-            'fontSize',
-            'fontColor',
-            'fontBackgroundColor',
-            '|',
-            'bold',
-            'italic',
-            {
-                label: 'More basic styles',
-                icon: 'underline',
-                items: [  
-                    'underline',
-                    'strikethrough',
-                    'subscript',
-                    'superscript',
-                    'blockQuote',
-                    'removeFormat' 
-                ]
-            },
-            '|',
-            'horizontalLine',
-            'pageBreak',
-            'link',
-            'imageUpload',
-            'insertTable',
-            'alignment',
-            '|',
-            {
-                label: 'lists',
-                icon: 'bulletedList',
-                items: [  
-                    'bulletedList',
-                    'numberedList'
-                ]
-            },
-            '|',
-            {
-                label: 'threeVerticalDots',
-                icon: 'threeVerticalDots',
-                items: [  
-                    'specialCharacters',
-                    'findAndReplace',
-                    'selectAll',
-                    'accessibilityHelp'
-                ]
-            }
-        ]
-    },
+    toolbar: [
+        'undo',
+        'redo',
+        'heading',
+        '|',
+        'fontSize',
+        'fontColor',
+        'fontBackgroundColor',
+        '|',
+        'bold',
+        'italic',
+        {
+            label: 'More basic styles',
+            icon: 'threeVerticalDots',
+            items: [  
+                'underline',
+                'strikethrough',
+                'subscript',
+                'superscript',
+                'blockQuote',
+                'removeFormat' 
+            ]
+        },
+        '|',
+        'horizontalLine',
+        'pageBreak',
+        'link',
+        'imageUpload',
+        'insertTable',
+        'alignment',
+        '|',
+        {
+            label: 'lists',
+            icon: 'threeVerticalDots',
+            items: [  
+                'bulletedList',
+                'numberedList'
+            ]
+        },
+        '|',
+        {
+            label: 'threeVerticalDots',
+            icon: 'threeVerticalDots',
+            items: [  
+                'specialCharacters',
+                'findAndReplace',
+                'selectAll',
+                'accessibilityHelp'
+            ]
+        }
+    ],
     language: 'en',
     image: {
         toolbar: [

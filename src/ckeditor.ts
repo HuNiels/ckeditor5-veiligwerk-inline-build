@@ -127,7 +127,7 @@ const config = {
                     'selectAll',
                     'accessibilityHelp'
                 ]
-            },
+            }
         ]
     },
     language: 'en',

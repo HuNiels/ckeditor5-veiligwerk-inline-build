@@ -9,11 +9,11 @@ import { ClassicEditor as ClassicEditorBase } from '@ckeditor/ckeditor5-editor-c
 import { Alignment } from '@ckeditor/ckeditor5-alignment';
 import { Autoformat } from '@ckeditor/ckeditor5-autoformat';
 import { Base64UploadAdapter} from "@ckeditor/ckeditor5-upload";
-import { Bold, Italic, Strikethrough, Underline } from '@ckeditor/ckeditor5-basic-styles';
+import { Bold, Italic, Strikethrough, Underline, Subscript, Superscript } from '@ckeditor/ckeditor5-basic-styles';
 import { BlockQuote } from '@ckeditor/ckeditor5-block-quote';
 import { CloudServices } from '@ckeditor/ckeditor5-cloud-services';
 import { Essentials } from '@ckeditor/ckeditor5-essentials';
-import { FontFamily, FontSize } from '@ckeditor/ckeditor5-font';
+import { FontFamily, FontSize, FontColor, FontBackgroundColor } from '@ckeditor/ckeditor5-font';
 import { Heading } from '@ckeditor/ckeditor5-heading';
 import {
 	Image,
@@ -35,6 +35,7 @@ import { SpecialCharacters } from '@ckeditor/ckeditor5-special-characters';
 import { Table, TableToolbar } from '@ckeditor/ckeditor5-table';
 import { TextTransformation } from '@ckeditor/ckeditor5-typing';
 import { FileRepository } from "@ckeditor/ckeditor5-upload";
+import { HorizontalLine } from '@ckeditor/ckeditor5-horizontal-line';
 
 
 // You can read more about extending the build with additional plugins in the "Installing plugins" guide.
@@ -72,7 +73,11 @@ const plugins = [
     TextTransformation,
     Underline,
     FileRepository,
-    // CKBox,
+    HorizontalLine,
+    FontColor,
+    FontBackgroundColor,
+    Subscript,
+    Superscript
 
 ];
 
@@ -80,18 +85,20 @@ const config = {
     toolbar: [
         'undo',
         'redo',
+        '|',
         'heading',
         '|',
         'fontSize',
         'fontColor',
         'fontBackgroundColor',
         '|',
-        'bold',
-        'italic',
+
         {
             label: 'More basic styles',
-            icon: 'threeVerticalDots',
-            items: [  
+            icon:  'bold',
+            items: [
+                'bold',
+                'italic',
                 'underline',
                 'strikethrough',
                 'subscript',
@@ -108,17 +115,17 @@ const config = {
         'insertTable',
         'alignment',
         '|',
+         'bulletedList', 'numberedList',
         {
             label: 'lists',
             icon: 'threeVerticalDots',
             items: [  
-                'bulletedList',
-                'numberedList'
+              
             ]
         },
         '|',
         {
-            label: 'threeVerticalDots',
+            label: 'Special',
             icon: 'threeVerticalDots',
             items: [  
                 'specialCharacters',
@@ -145,6 +152,13 @@ const config = {
             'tableRow',
             'mergeTableCells'
         ]
+    },
+    list: {
+        properties: {
+            startIndex: true,
+            reversed: true,
+            styles: true
+        }
     }
 };
 
@@ -154,7 +168,7 @@ class InlineEditor extends InlineEditorBase {
 }
 
 class ClassicEditor extends ClassicEditorBase {
-	public static override builtinPlugins = plugins
+    public static override builtinPlugins = plugins
 	public static override defaultConfig = config
 }
 

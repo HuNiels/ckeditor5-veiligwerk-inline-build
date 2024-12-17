@@ -32,6 +32,7 @@ import { Paragraph } from '@ckeditor/ckeditor5-paragraph';
 // import { PasteFromOffice } from '@ckeditor/ckeditor5-paste-from-office';
 import { RemoveFormat } from '@ckeditor/ckeditor5-remove-format';
 import { SpecialCharacters } from '@ckeditor/ckeditor5-special-characters';
+import { SpecialCharactersCurrency, SpecialCharactersMathematical, SpecialCharactersEssentials } from '@ckeditor/ckeditor5-special-characters';
 import { Table, TableToolbar } from '@ckeditor/ckeditor5-table';
 import { TextTransformation } from '@ckeditor/ckeditor5-typing';
 import { FileRepository } from "@ckeditor/ckeditor5-upload";
@@ -67,6 +68,9 @@ const plugins = [
     PictureEditing,
     RemoveFormat,
     SpecialCharacters,
+    SpecialCharactersEssentials,
+    SpecialCharactersCurrency,
+    SpecialCharactersMathematical,
     Strikethrough,
     Table,
     TableToolbar,

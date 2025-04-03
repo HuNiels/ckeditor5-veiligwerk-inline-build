@@ -82,6 +82,20 @@ declare class InlineEditor extends InlineEditorBase {
         fontSize: {
             options: (string | number)[];
         };
+        link: {
+            defaultProtocol: string;
+            addTargetToExternalLinks: boolean;
+            decorators: {
+                isExternal: {
+                    mode: "automatic";
+                    callback: (url: string | null) => boolean;
+                    attributes: {
+                        target: string;
+                        rel: string;
+                    };
+                };
+            };
+        };
     };
 }
 declare class ClassicEditor extends ClassicEditorBase {
@@ -137,6 +151,20 @@ declare class ClassicEditor extends ClassicEditorBase {
         };
         fontSize: {
             options: (string | number)[];
+        };
+        link: {
+            defaultProtocol: string;
+            addTargetToExternalLinks: boolean;
+            decorators: {
+                isExternal: {
+                    mode: "automatic";
+                    callback: (url: string | null) => boolean;
+                    attributes: {
+                        target: string;
+                        rel: string;
+                    };
+                };
+            };
         };
     };
 }

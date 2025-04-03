@@ -235,6 +235,20 @@ const config = {
             22
         ]
     },
+    link: {
+        defaultProtocol: 'https://',
+        addTargetToExternalLinks: true,
+        decorators: {
+            isExternal: {
+                mode: 'automatic' as const,
+                callback: (url: string | null) => url ? /^(https?:)?\/\//.test(url) : false,
+                attributes: {
+                    target: '_blank',
+                    rel: 'noopener noreferrer'
+                }
+            }
+        }
+    },
     
 };
 
